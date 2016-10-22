@@ -1,0 +1,6 @@
+{
+  "name": "Antoniotrkdz.GitHub.io",
+  "tagline": "Loads of serious stuff!",
+  "body": "### Welcome to Antoniotrkdz GitHub Page.\r\nI am a neuroscientist, but I am also a student programmer.\r\nHere is where you can find my projects.\r\nThe first piece of of code is an [ImageJ](https://imagej.nih.gov/ij/)/[FIJI](https://fiji.sc/) macro to stitch together various stacks of images acquired with the Prairie Ultima IV Two-Photon microscopes.\r\nFor an explanation of what Two-Photon microscopy is please read [here] (https://en.wikipedia.org/wiki/Two-photon_excitation_microscopy)\r\n\r\nThe macro _per se_ is nothing fancy, it just reorganises a set of images in a way that can then be stitched with the help of [TrackEM2](https://www.ini.uzh.ch/~acardona/trakem2.html) ImageJ/FIJI plugin    \r\n\r\n\r\n\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
