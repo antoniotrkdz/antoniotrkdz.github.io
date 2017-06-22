@@ -86,6 +86,7 @@
 					<li><span style="color:#09B3CA; font-weight: 600;">2017</span>&nbsp;Full stack developer course Founders &amp; Coders</li>
 					<li><span style="color:#09B3CA; font-weight: 600;">2015</span>&nbsp;C for Science course Imperial College London</li>
 					<li><span style="color:#09B3CA; font-weight: 600;">2009</span>&nbsp;PhD Neuroscience "Sapienza" University of Rome</li>
+					<li><span style="color:#09B3CA; font-weight: 600;">2005</span>&nbsp;B.A and MSc Psychology "Sapienza" University of Rome</li>
 				</ul>
 			</section>
 		</section>
@@ -187,14 +188,33 @@
 	function randomColor() {
 		
 		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
-	//	console.log(svgNodes.length);
-		
-		n = Math.floor(Math.random() * svgNodes.length);
-	//	console.log(n);
+		var n = Math.floor(Math.random() * svgNodes.length);
+
 		svgNodes[n].style.fill=svgNodes[n].getAttribute("fill");
 		setTimeout(function () { svgNodes[n].style.fill="none" }, 300);
-	//	console.dir(svgNodes[n].getAttribute("fill"));
 	}
 	setInterval(function () { randomColor() }, 333);
+
+	function wave() {
+		var svgNodes = footer.getElementsByTagName("svg")[0].childNodes;
+		console.log(svgNodes);
+		for (var i=0; i<svgNodes.length; i++) {
+			setTimeout(function	() {
+				var svgNodes = footer.getElementsByTagName("svg")[0].childNodes;
+			 	svgNodes[i].style.fill=svgNodes[i].getAttribute("fill")
+			}, 50);
+				
+			//setTimeout(function () { node.style.fill=node.getAttribute("fill"); 
+
+		//svgNodes.forEach(function (e,i) { svgNodes[i].style.fill=svgNodes[i].getAttribute("fill") 
+			//setTimeout(function () { 
+			//	console.log(node.style.fill); }, 500);
+
+		
+		}
+			//	setTimeout(function () { svgNodes[i].style.fill="none" }, 30) }, 20)
+		}
+	//}
+	wave();
 </script>
 </html>
