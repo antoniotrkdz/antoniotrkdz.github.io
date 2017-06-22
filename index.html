@@ -187,13 +187,10 @@
 	function randomColor() {
 		
 		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
-	//	console.log(svgNodes.length);
-		
-		n = Math.floor(Math.random() * svgNodes.length);
-	//	console.log(n);
+		var n = Math.floor(Math.random() * svgNodes.length);
+	
 		svgNodes[n].style.fill=svgNodes[n].getAttribute("fill");
 		setTimeout(function () { svgNodes[n].style.fill="none" }, 300);
-	//	console.dir(svgNodes[n].getAttribute("fill"));
 	}
 	setInterval(function () { randomColor() }, 333);
 </script>
