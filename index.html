@@ -185,7 +185,7 @@
 	draw();
 	window.addEventListener("resize", draw);
 
-	function randomColor() {
+	function randomPath() {
 		
 		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
 		var n = Math.floor(Math.random() * svgNodes.length);
@@ -193,7 +193,7 @@
 		svgNodes[n].style.fill=svgNodes[n].getAttribute("fill");
 		setTimeout(function () { svgNodes[n].style.fill="none" }, 300);
 	}
-	setInterval(function () { randomColor() }, 333);
+	setInterval(function () { randomPath() }, 333);
 	
 	function shuffle(array) {
   		var currentIndex = array.length, temporaryValue, randomIndex;
@@ -216,18 +216,21 @@
 
 	var colors = ["#09B3CA","#F19F19","#B5CF5D","#BB1881"];
 	colors = shuffle(colors);
-	var blue = document.querySelectorAll(".blue");
-	var orange = document.querySelectorAll(".orange");
-	var purple = document.querySelectorAll(".purple");
-	var green = document.querySelectorAll(".green");
-	blue.forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[0];
-		else e.style.borderColor = colors[0]; });
-	orange.forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[1];
-		else e.style.borderColor = colors[1]; });
-	purple.forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[2];
-		else e.style.borderColor = colors[2]; });
-	green.forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[3];
-		else e.style.borderColor = colors[3]; });
 
+	var elements = {
+		blue : document.querySelectorAll(".blue"),
+		orange : document.querySelectorAll(".orange"),
+		purple : document.querySelectorAll(".purple"),
+		green : document.querySelectorAll(".green")
+	}	
+	
+	var j=0;	
+	
+	for (var i in elements) {
+		elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
+		else e.style.borderColor = colors[j]; });
+		j++;
+	}
+	
 </script>
 </html>
