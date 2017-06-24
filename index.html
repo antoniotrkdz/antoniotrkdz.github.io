@@ -53,17 +53,17 @@
 	<div class="border" style="margin-bottom: 2vh; width:100%; height:1px; background: linear-gradient(to left, #525252, #ffffff);"></div>
 		<section id="contacts" style="display: flex;">
 			<a href="https://github.com/antoniotrkdz" style="text-decoration: none;">
-				<i class="fa fa-github-alt fa-lg" style="color: #F19F19">
+				<i class="fa fa-github-alt fa-lg orange" style="color: #F19F19">
 					<span style="color: #fff">&nbsp;github.com/antoniotrkdz</span>
 				</i>
 			</a>
 			<a href="mailto:antoniotrabalza@gmail.com" style="text-decoration: none;">
-				<i class="fa fa-envelope-o fa-lg" style="color: #09B3CA;">
+				<i class="fa fa-envelope-o fa-lg blue" style="color: #09B3CA;">
 					<span style="color: #fff;">&nbsp;antoniotrabalza@gmail.com</span>
 				</i>
 			</a>
-			<a href="tel:07577833827" style="text-decoration: none;">
-				<i class="fa fa-phone fa-lg" style="color: #B5CF5D;">
+			<a href="tel:+447577833827" style="text-decoration: none;">
+				<i class="fa fa-phone fa-lg green" style="color: #B5CF5D;">
 					<span style="color: #fff;">&nbsp;07577833827</span>
 				</i>
 			</a>
@@ -78,20 +78,20 @@
 					<li>I am a Full Stack developer with a Scientific Research background. I am passionate about everything Science &amp; Technology and I enjoy functional, lean and clean designs.</li>
 				</ul>
 			</section>
-			<section class="box" style="border: 2px dashed #09B3CA; position: relative; margin: 0 .5vw 2.5vh .5vw;">
-				<div id="qual" class="secTitles lx" style="color:#09B3CA;">
+			<section class="box blue" style="border: 2px dashed #09B3CA; position: relative; margin: 0 .5vw 2.5vh .5vw;">
+				<div id="qual" class="secTitles lx blue" style="color:#09B3CA;">
 					<p>&gt;Qualification/training</p><span>&gt;Qualification&lt;</span>
 				</div> 
 				<ul style="list-style-type: none; padding: 1vw;">
-					<li><span style="color:#09B3CA; font-weight: 600;">2017</span>&nbsp;Full stack developer course - Founders &amp; Coders</li>
-					<li><span style="color:#09B3CA; font-weight: 600;">2015</span>&nbsp;C for Science course - Imperial College London</li>
-					<li><span style="color:#09B3CA; font-weight: 600;">2009</span>&nbsp;PhD Neuroscience - "Sapienza" University of Rome</li>
-					<li><span style="color:#09B3CA; font-weight: 600;">2005</span>&nbsp;BA and MSc Psychology - "Sapienza" University of Rome</li>
+					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2017</span>&nbsp;Full stack developer course - Founders &amp; Coders</li>
+					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2015</span>&nbsp;C for Science course - Imperial College London</li>
+					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2009</span>&nbsp;PhD Neuroscience - "Sapienza" University of Rome</li>
+					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2005</span>&nbsp;BA and MSc Psychology - "Sapienza" University of Rome</li>
 				</ul>
 			</section>
 		</section>
-		<section class="box" style="border: 2px dashed #BB1881; position: relative; margin: 0 .5vw 2.5vh .5vw">
-			<div id="code" class="secTitles rx" style="color:#BB1881;">
+		<section class="box purple" style="border: 2px dashed #BB1881; position: relative; margin: 0 .5vw 2.5vh .5vw">
+			<div id="code" class="secTitles rx purple" style="color:#BB1881;">
 				<p>Coding skills&lt;</p><span>&gt;Coding skills&lt;</span>
 			</div>
 			<ul>
@@ -108,8 +108,8 @@
 				<li>FIJI/ImageJ2 Macro Language for microscopy image analysis &amp; pattern recognition.</li>
 			</ul>
 		</section>
-		<section class="box" style="border: 2px dashed #F19F19;  position: relative; margin: 0 .5vw 2.5vh .5vw;">
-			<div id="it" class="secTitles lx" style="color:#F19F19;">
+		<section class="box orange" style="border: 2px dashed #F19F19;  position: relative; margin: 0 .5vw 2.5vh .5vw;">
+			<div id="it" class="secTitles lx orange" style="color:#F19F19;">
 				<p>&gt;IT/SysAdmin skills</p><span>&gt;IT/SysAdmin skills&lt;</span>
 			</div>
 			<ul>
@@ -124,8 +124,8 @@
 				<li>Good knowledge of computer hardware and of IoT Electronics.</li>
 			</ul>
 		</section>
-		<section class="box" style="border: 2px dashed #B5CF5D; position: relative; margin: 0 .5vw 2.5vh .5vw;">
-				<div id="manag" class="secTitles rx" style="color:#B5CF5D;">
+		<section class="box green" style="border: 2px dashed #B5CF5D; position: relative; margin: 0 .5vw 2.5vh .5vw;">
+				<div id="manag" class="secTitles rx green" style="color:#B5CF5D;">
 					<p>Interpersonal/Planning/Problem solving skills&lt;</p><span>&gt;Management skills&lt;</span>
 				</div>
 			<ul>
@@ -194,5 +194,40 @@
 		setTimeout(function () { svgNodes[n].style.fill="none" }, 300);
 	}
 	setInterval(function () { randomColor() }, 333);
+	
+	function shuffle(array) {
+  		var currentIndex = array.length, temporaryValue, randomIndex;
+
+  		// While there remain elements to shuffle...
+  		while (0 !== currentIndex) {
+
+    		// Pick a remaining element...
+    		randomIndex = Math.floor(Math.random() * currentIndex);
+    		currentIndex -= 1;
+	
+   			// And swap it with the current element.
+   	 		temporaryValue = array[currentIndex];
+    		array[currentIndex] = array[randomIndex];
+    		array[randomIndex] = temporaryValue;
+  		}
+
+  		return array;
+	}
+
+	var colors = ["#09B3CA","#F19F19","#B5CF5D","#BB1881"];
+	colors = shuffle(colors);
+	var blue = document.querySelectorAll(".blue");
+	var orange = document.querySelectorAll(".orange");
+	var purple = document.querySelectorAll(".purple");
+	var green = document.querySelectorAll(".green");
+	blue.forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[0];
+		else e.style.borderColor = colors[0]; });
+	orange.forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[1];
+		else e.style.borderColor = colors[1]; });
+	purple.forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[2];
+		else e.style.borderColor = colors[2]; });
+	green.forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[3];
+		else e.style.borderColor = colors[3]; });
+
 </script>
 </html>
