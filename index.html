@@ -161,10 +161,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
 <script>
 	//Using trianglify library
-	var header = document.getElementById("header");
-	var footer = document.getElementById("footer");
 
 	function draw() {
+		var header = document.getElementById("header");
+		var footer = document.getElementById("footer");
+
 		var hpattern = Trianglify({ //Header pattern object
 			width: header.offsetWidth,
 			height: header.offsetHeight,
@@ -194,38 +195,31 @@
 		if (fsvg.length > 0) footer.removeChild(fsvg[0]);
 		footer.appendChild(fpattern.svg());
 	}
-	draw(); //initialize the function on load
-	window.addEventListener("resize", draw); //redraw the svg on resize for responsive design
 
 	function randomPath() { //Choses a svg element at random and re-fills it
-
 		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
 		var n = Math.floor(Math.random() * svgNodes.length);
 
 		svgNodes[n].style.fill=svgNodes[n].getAttribute("fill");
 		setTimeout(function () { svgNodes[n].style.fill="none" }, 300); //Wait a bit and remove the fill (back to initial css rule)
 	}
-	setInterval(function () { randomPath() }, 333);
 
 	function shuffle(array) { //function to shuffle array elements
-  		var currentIndex = array.length, temporaryValue, randomIndex;
-
+  	var currentIndex = array.length, temporaryValue, randomIndex;
   		// While there remain elements to shuffle...
-  		while (0 !== currentIndex) {
-
-    		// Pick a remaining element...
-    		randomIndex = Math.floor(Math.random() * currentIndex);
-    		currentIndex -= 1;
-
-   			// And swap it with the current element.
-   	 		temporaryValue = array[currentIndex];
-    		array[currentIndex] = array[randomIndex];
-    		array[randomIndex] = temporaryValue;
-  		}
-
+  	while (0 !== currentIndex) {
+    	// Pick a remaining element...
+    	randomIndex = Math.floor(Math.random() * currentIndex);
+    	currentIndex -= 1;
+   		// And swap it with the current element.
+   	 	temporaryValue = array[currentIndex];
+    	array[currentIndex] = array[randomIndex];
+    	array[randomIndex] = temporaryValue;
+  	}
   		return array;
 	}
 
+function randomColors() {
 	var colors = ["#09B3CA","#F19F19","#B5CF5D","#BB1881"];
 	colors = shuffle(colors); //shuffles the colors
 
@@ -245,19 +239,24 @@
 				elements[i][e].style.color = colors[j];
 			}
 			else elements[i][e].style.borderColor = colors[j];
-		console.log(j);
-		console.log(colors[j]);
 		}
 		j++;
 	}
-
-	/*var j=0;
+	/*Solves the problem with forEach loop (looks cleaner), but has browser compatibility issues.
 
 	for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
 		elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
 		else e.style.borderColor = colors[j]; });
 		j++;
 	}*/
+	}
+
+	draw(); //initialize the function on load
+	//redraw the svg on resize for responsive design (two ways of doing the same thing, just pick one)
+	//window.onresize = function() { draw() }
+	window.addEventListener("resize", draw);
+	setInterval(function () { randomPath() }, 333); //run
+	randomColors();
 
 </script>
 </html>
