@@ -8,7 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Exo:100i,200,200i,600,600i" rel="stylesheet">
 	<script src="https://use.fontawesome.com/66cba969de.js"></script>
 	<style>
-		path { fill: none; } /*needed to prevent the triangle svg elements to be filled (trianglify library default)*/ 
+		path { fill: none; } /*needed to prevent the triangle svg elements to be filled (trianglify library default)*/
 		body,li,header,footer,h1,p { margin: 0; padding: 0; border: 0; } /*some reset*/
 		h1,a,li,div { font-family: 'Exo', sans-serif; color: #fff; }
 		span,i { font-family: 'Exo', sans-serif; }
@@ -16,14 +16,14 @@
 		i:hover { transform: scale(1.1); }
 		.fa { padding: 1.5vh; }
 		.secTitles { background-color: #161616; font-weight: 600; padding: 1px 5px 1px 5px;  }
-				
+
 		@media (min-width: 761px) { /*desktop*/
 			#contacts { flex-flow: row wrap; justify-content: center; }
 			.innerContacts { flex-flow: row; justify-content: space-between; }
 			#main { flex-flow: row wrap; justify-content: center; }
 			#main .box { width: 46vw; }
 			.secTitles { position: absolute;  }
-			.lx { right: -7px ; top: -13px; } 
+			.lx { right: -7px ; top: -13px; }
 			.rx { left: -7px; top: -13px; }
 			.secTitles span { display: none; }
 			.secTitles p { display: inline-block; }
@@ -35,7 +35,7 @@
 			#main { flex-flow: column; align-items: center; }
 			#main .box { width: 95vw; }
 			.secTitles { position: relative; }
-			.lx { margin: -13px auto; text-align: center; } 
+			.lx { margin: -13px auto; text-align: center; }
 			.rx { margin: -13px auto; text-align: center; }
 			#about { width: 60px; }
 			#qual { width: 105px; }
@@ -80,7 +80,7 @@
 		</section>
 	<section id="main" style="display: flex; margin-top: 2vh;">
 		<section>
-			<section class="box" style="border: 2px dashed #fff; position: relative; margin: 0 .5vw 2.5vh .5vw;"> 
+			<section class="box" style="border: 2px dashed #fff; position: relative; margin: 0 .5vw 2.5vh .5vw;">
 				<div id="about" class="secTitles lx" style="color:#fff;">
 					<p>&gt;About me</p><span>&gt;About&lt;</span>
 				</div>
@@ -91,7 +91,7 @@
 			<section class="box blue" style="border: 2px dashed #09B3CA; position: relative; margin: 0 .5vw 2.5vh .5vw;">
 				<div id="qual" class="secTitles lx blue" style="color:#09B3CA;">
 					<p>&gt;Qualification/training</p><span>&gt;Qualification&lt;</span>
-				</div> 
+				</div>
 				<ul style="list-style-type: none; padding: 1vw;">
 					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2017</span>&nbsp;Full stack developer course - Founders &amp; Coders</li>
 					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2015</span>&nbsp;C for Science course - Imperial College London</li>
@@ -163,7 +163,7 @@
 	//Using trianglify library
 	var header = document.getElementById("header");
 	var footer = document.getElementById("footer");
-	
+
 	function draw() {
 		var hpattern = Trianglify({ //Header pattern object
 			width: header.offsetWidth,
@@ -174,7 +174,7 @@
 			stroke_width: 1,
 			cell_size: 30,
 		});
-		
+
 		var fpattern = Trianglify({ //Footer pattern object
 			width: footer.offsetWidth,
 			height: footer.offsetHeight,
@@ -184,7 +184,7 @@
 			stroke_width: 1,
 			cell_size: 30,
 		});
-		
+
 		//These are to prevent the function to draw more than 1 pattern
 		var hsvg = header.getElementsByTagName("svg");
 		if (hsvg.length > 0) header.removeChild(hsvg[0]);
@@ -198,15 +198,15 @@
 	window.addEventListener("resize", draw); //redraw the svg on resize for responsive design
 
 	function randomPath() { //Choses a svg element at random and re-fills it
-		
+
 		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
 		var n = Math.floor(Math.random() * svgNodes.length);
-	
+
 		svgNodes[n].style.fill=svgNodes[n].getAttribute("fill");
 		setTimeout(function () { svgNodes[n].style.fill="none" }, 300); //Wait a bit and remove the fill (back to initial css rule)
 	}
 	setInterval(function () { randomPath() }, 333);
-	
+
 	function shuffle(array) { //function to shuffle array elements
   		var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -216,7 +216,7 @@
     		// Pick a remaining element...
     		randomIndex = Math.floor(Math.random() * currentIndex);
     		currentIndex -= 1;
-	
+
    			// And swap it with the current element.
    	 		temporaryValue = array[currentIndex];
     		array[currentIndex] = array[randomIndex];
@@ -234,15 +234,30 @@
 		orange : document.querySelectorAll(".orange"),
 		purple : document.querySelectorAll(".purple"),
 		green : document.querySelectorAll(".green")
-	}	
-	
-	var j=0;	
-	
+	}
+
+	var j=0;
+
+	for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
+		for (e=0; e<elements[i].length; e++) {
+			console.log(elements[i][e].className);
+			if (elements[i][e].className.indexOf("box")===-1) {
+				elements[i][e].style.color = colors[j];
+			}
+			else elements[i][e].style.borderColor = colors[j];
+		console.log(j);
+		console.log(colors[j]);
+		}
+		j++;
+	}
+
+	/*var j=0;
+
 	for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
 		elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
 		else e.style.borderColor = colors[j]; });
 		j++;
-	}
-	
+	}*/
+
 </script>
 </html>
