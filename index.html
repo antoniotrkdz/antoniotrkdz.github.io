@@ -49,7 +49,9 @@
 </head>
 <body style="background-color: #161616;">
 	<header id="header" style="position: relative; width:100%; height:25vh;">
-		<h1 style="background: -webkit-linear-gradient(left, #fff, #525252); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:200; font-style: italic; position: absolute; bottom: -8px; right: 1vw;">Antonio Trabalza</h1>
+		<div id="myName">
+			<h1 style="background: -webkit-linear-gradient(left, #fff, #525252); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:200; font-style: italic; position: absolute; bottom: -8px; right: 1vw;">Antonio Trabalza</h1>
+		</div>
 	</header>
 	<div class="border" style="margin-bottom: 2vh; width:100%; height:1px; background: linear-gradient(to left, #525252, #ffffff);"></div>
 		<section id="contacts" style="display: flex;">
@@ -196,12 +198,39 @@
 		footer.appendChild(fpattern.svg());
 	}
 
-	function randomPath() { //Choses a svg element at random and re-fills it
+	function randomPath() { //Choses a svg element at random.
 		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
 		var n = Math.floor(Math.random() * svgNodes.length);
+		return svgNodes[n];
+	}
 
-		svgNodes[n].style.fill=svgNodes[n].getAttribute("fill");
-		setTimeout(function () { svgNodes[n].style.fill="none" }, 300); //Wait a bit and remove the fill (back to initial css rule)
+	function randomPathsArray(){
+		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
+		var r = Math.floor(Math.random() * 10);
+		var arr = [];
+
+		for (i=0; i<r; i++) {
+			var n = Math.floor(Math.random() * svgNodes.length);
+			arr.push(n);
+		}
+
+ 		console.log(arr);
+		for (var a=0; a<arr.length; a++) {
+	 		blink(svgNodes[arr[a]]);
+			// 	console.log(svgNodes[arr[a]]);
+	 	}
+	}
+
+	function randomTime(min, max) { //Choses a time (ms) at random between two values (inclusive).
+  	min = Math.ceil(min);
+  	max = Math.floor(max);
+  	return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function blink(path) { //(Re)fills the path, waits a bit and removes the fill (back to initial css rule).
+		console.log(typeof path);
+		path.style.fill = path.getAttribute("fill");
+		setTimeout(function () { path.style.fill="none" }, randomTime(250, 600));
 	}
 
 	function shuffle(array) { //function to shuffle array elements
@@ -219,44 +248,43 @@
   		return array;
 	}
 
-function randomColors() {
-	var colors = ["#09B3CA","#F19F19","#B5CF5D","#BB1881"];
-	colors = shuffle(colors); //shuffles the colors
+	function randomColors() {
+		var colors = ["#09B3CA","#F19F19","#B5CF5D","#BB1881"];
+		colors = shuffle(colors); //shuffles the colors
 
-	var elements = {
-		blue : document.querySelectorAll(".blue"),
-		orange : document.querySelectorAll(".orange"),
-		purple : document.querySelectorAll(".purple"),
-		green : document.querySelectorAll(".green")
-	}
-
-	var j=0;
-
-	for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
-		for (e=0; e<elements[i].length; e++) {
-			console.log(elements[i][e].className);
-			if (elements[i][e].className.indexOf("box")===-1) {
-				elements[i][e].style.color = colors[j];
-			}
-			else elements[i][e].style.borderColor = colors[j];
+		var elements = {
+			blue : document.querySelectorAll(".blue"),
+			orange : document.querySelectorAll(".orange"),
+			purple : document.querySelectorAll(".purple"),
+			green : document.querySelectorAll(".green")
 		}
-		j++;
-	}
-	/*Solves the problem with forEach loop (looks cleaner), but has browser compatibility issues.
 
-	for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
-		elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
-		else e.style.borderColor = colors[j]; });
-		j++;
-	}*/
+		var j=0;
+
+		for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
+			for (e=0; e<elements[i].length; e++) {
+				if (elements[i][e].className.indexOf("box")===-1) {
+					elements[i][e].style.color = colors[j];
+				}
+				else elements[i][e].style.borderColor = colors[j];
+			}
+			j++;
+		}
+		/*Solves the problem with forEach loop (looks cleaner), but has browser compatibility issues.
+		for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
+			elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
+			else e.style.borderColor = colors[j]; });
+			j++;
+		}*/
 	}
 
-	draw(); //initialize the function on load
-	//redraw the svg on resize for responsive design (two ways of doing the same thing, just pick one)
-	//window.onresize = function() { draw() }
-	window.addEventListener("resize", draw);
-	setInterval(function () { randomPath() }, 333); //run
+	draw(); //initialize the function on load - draws the triangles header and footer.
 	randomColors();
-
+	//window.onresize = function() { draw() } //Redraws the svg(s) on resize for responsive design (two ways of doing the same thing, just pick one):
+	window.addEventListener("resize", draw);
+	setInterval(function () { blink(randomPath()) }, randomTime(200, 600)); //initialize the function on load.
+	var hover;
+	document.getElementById("myName").onmouseenter = hover = function () { clearInterval(blink(randomPath()); setInterval(function () { randomPathsArray() }, randomTime(200, 600)); console.log("+++++") };
+	document.getElementById("myName").onmouseleave = hover = function () { clearInterval(randomPathsArray);	setInterval(function () { blink(randomPath()) }, randomTime(200, 600));	console.log("-----") };
 </script>
 </html>
