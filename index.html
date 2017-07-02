@@ -284,7 +284,7 @@
 	window.addEventListener("resize", draw);
 	setInterval(function () { blink(randomPath()) }, randomTime(200, 600)); //initialize the function on load.
 	var hover;
-	document.getElementById("myName").onmouseenter = hover = function () { clearInterval(blink(randomPath()); setInterval(function () { randomPathsArray() }, randomTime(200, 600)); console.log("+++++") };
-	document.getElementById("myName").onmouseleave = hover = function () { clearInterval(randomPathsArray);	setInterval(function () { blink(randomPath()) }, randomTime(200, 600));	console.log("-----") };
+	document.getElementById("myName").onmouseenter = hover = function () { clearInterval(blink(randomPath())); setInterval(function () { randomPathsArray() }, randomTime(200, 600)); console.log("+++++") };
+	document.getElementById("myName").onmouseleave = hover = function () { clearInterval(randomPathsArray()); setInterval(function () { blink(randomPath()) }, randomTime(200, 600)); console.log("-----") };
 </script>
 </html>
