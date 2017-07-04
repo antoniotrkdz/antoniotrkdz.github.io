@@ -282,9 +282,34 @@
 	randomColors();
 	//window.onresize = function() { draw() } //Redraws the svg(s) on resize for responsive design (two ways of doing the same thing, just pick one):
 	window.addEventListener("resize", draw);
-	setInterval(function () { blink(randomPath()) }, randomTime(200, 600)); //initialize the function on load.
-	var hover;
-	document.getElementById("myName").onmouseenter = hover = function () { clearInterval(blink(randomPath()); setInterval(function () { randomPathsArray() }, randomTime(200, 600)); console.log("+++++") };
-	document.getElementById("myName").onmouseleave = hover = function () { clearInterval(randomPathsArray);	setInterval(function () { blink(randomPath()) }, randomTime(200, 600));	console.log("-----") };
+	var miname = document.getElementById("myName");
+	var hover = false;
+	function bover() {
+		if (!hover) { setInterval(function() { blink(randomPath()) }, randomTime(200, 600));
+		console.log(hover);
+		}
+		else { clearInterval(blink(randomPath()));
+			setInterval(function() { randomPathsArray() }, randomTime(200, 600));
+			console.log(hover);
+		}
+	}
+	bover(); //initialize the function on load.
+	miname.addEventListener("onmouseenter", function() { hover = true;
+		return hover; });
+	console.log(hover);
+	miname.addEventListener("onmouseleave", function() { hover = false;
+		return hover; });
+	console.log(hover);
+
+	// function() { clearInterval(blink(randomPath()));
+	// 	console.log("+++++", hover);
+	// 	return hover;
+	// };
+	// function() { clearInterval(randomPathsArray());
+	// 	setInterval(function() { blink(randomPath()) }, randomTime(200, 600));
+	// 	console.log("-----", hover);
+	// 	return hover;
+	// };
+
 </script>
 </html>
