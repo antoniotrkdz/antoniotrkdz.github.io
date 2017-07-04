@@ -1,290 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Antonio Trabalza Resume</title>
-	<link href="https://fonts.googleapis.com/css?family=Exo:100i,200,200i,600,600i" rel="stylesheet">
-	<script src="https://use.fontawesome.com/66cba969de.js"></script>
-	<style>
-		path { fill: none; } /*needed to prevent the triangle svg elements to be filled (trianglify library default)*/
-		body,li,header,footer,h1,p { margin: 0; padding: 0; border: 0; } /*some reset*/
-		h1,a,li,div { font-family: 'Exo', sans-serif; color: #fff; }
-		span,i { font-family: 'Exo', sans-serif; }
-		a { text-decoration: none; }
-		i:hover { transform: scale(1.1); }
-		.fa { padding: 1.5vh; }
-		.secTitles { background-color: #161616; font-weight: 600; padding: 1px 5px 1px 5px;  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Antonio Trabalza Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo:100i,200,200i,600,600i" rel="stylesheet">
+    <script src="https://use.fontawesome.com/66cba969de.js"></script>
+    <style>
+        path { fill: none; } /*needed to prevent the triangle svg elements to be filled (trianglify library default)*/
+        body,li,header,footer,h1,p { margin: 0; padding: 0; border: 0; } /*some reset*/
+        h1,a,li,div { font-family: 'Exo', sans-serif; color: #fff; }
+        span,i { font-family: 'Exo', sans-serif; }
+        a { text-decoration: none; }
+        i:hover { transform: scale(1.1); }
+        #header { position: relative; width:100%; height:25vh; }
+        #footer { position: relative; width:100%; height:12.5vh; overflow: hidden; }
+        #myName h1 { background: -webkit-linear-gradient(left, #fff, #525252); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:200; font-style: italic; position: absolute; bottom: -8px; right: 1vw; }
+        #contacts { display: flex; }
+        #main { display: flex; margin-top: 2vh; }
+        .innerContacts { display: flex; }
+        #h_border { margin-bottom: 2vh; width:100%; height:1px; background: linear-gradient(to left, #525252, #ffffff); }
+        #f_border { margin-top: 2vh; width:100%; height:1px; background: linear-gradient(to right, #525252, #ffffff); }
+        #pdf { color: #fff; position: absolute; left: 1vw; top: 3vh; }
+        .fa { padding: 1.5vh; }
+        .box { border: 2px dashed #fff; position: relative; margin: 0 .5vw 2.5vh .5vw; }
+        .secTitles { background-color: #161616; font-weight: 600; padding: 1px 5px 1px 5px; }
 
-		@media (min-width: 761px) { /*desktop*/
-			#contacts { flex-flow: row wrap; justify-content: center; }
-			.innerContacts { flex-flow: row; justify-content: space-between; }
-			#main { flex-flow: row wrap; justify-content: center; }
-			#main .box { width: 46vw; }
-			.secTitles { position: absolute;  }
-			.lx { right: -7px ; top: -13px; }
-			.rx { left: -7px; top: -13px; }
-			.secTitles span { display: none; }
-			.secTitles p { display: inline-block; }
-		}
+        @media (min-width: 761px) { /*desktop*/
+            #contacts { flex-flow: row wrap; justify-content: center; }
+            .innerContacts { flex-flow: row; justify-content: space-between; }
+            #main { flex-flow: row wrap; justify-content: center; }
+            #main .box { width: 46vw; }
+            .secTitles { position: absolute;  }
+            .lx { right: -7px ; top: -13px; }
+            .rx { left: -7px; top: -13px; }
+            .secTitles span { display: none; }
+            .secTitles p { display: inline-block; }
+        }
 
-		@media (max-width: 760px) { /*mobile*/
-			#contacts { flex-flow: column; align-items: center; }
-			.innerContacts { flex-flow: column; align-items: center; }
-			#main { flex-flow: column; align-items: center; }
-			#main .box { width: 95vw; }
-			.secTitles { position: relative; }
-			.lx { margin: -13px auto; text-align: center; }
-			.rx { margin: -13px auto; text-align: center; }
-			#about { width: 60px; }
-			#qual { width: 105px; }
-			#code { width: 105px; }
-			#it { width: 150px; }
-			#manag { width: 152px; }
-			.secTitles span { display:inline-block; }
-    		.secTitles p { display:none; }
-		}
-	</style>
+        @media (max-width: 760px) { /*mobile*/
+            #contacts { flex-flow: column; align-items: center; }
+            .innerContacts { flex-flow: column; align-items: center; }
+            #main { flex-flow: column; align-items: center; }
+            #main .box { width: 95vw; }
+            .secTitles { position: relative; }
+            .lx { margin: -13px auto; text-align: center; }
+            .rx { margin: -13px auto; text-align: center; }
+            #about { width: 60px; }
+            #qual { width: 105px; }
+            #code { width: 105px; }
+            #it { width: 150px; }
+            #manag { width: 152px; }
+            .secTitles span { display:inline-block; }
+            .secTitles p { display:none; }
+        }
+    </style>
 </head>
 <body style="background-color: #161616;">
-	<header id="header" style="position: relative; width:100%; height:25vh;">
-		<div id="myName">
-			<h1 style="background: -webkit-linear-gradient(left, #fff, #525252); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:200; font-style: italic; position: absolute; bottom: -8px; right: 1vw;">Antonio Trabalza</h1>
-		</div>
-	</header>
-	<div class="border" style="margin-bottom: 2vh; width:100%; height:1px; background: linear-gradient(to left, #525252, #ffffff);"></div>
-		<section id="contacts" style="display: flex;">
-			<div class="innerContacts" style="display: flex;">
-				<a href="https://github.com/antoniotrkdz">
-					<i class="fa fa-github-alt fa-lg orange" aria-hidden="true" style="color: #F19F19">
-						<span style="color: #fff">&nbsp;github.com/antoniotrkdz</span>
-					</i>
-				</a>
-				<a href="https://www.linkedin.com/in/a-trabalza-phd/">
-					<i class="fa fa-linkedin fa-lg purple" aria-hidden="true" style="color: #BB1881">
-						<span style="color: #fff">&nbsp;linkedin.com/in/a-trabalza-phd</span>
-					</i>
-				</a>
-			</div>
-			<div  class="innerContacts" style="display: flex;">
-				<a href="mailto:antoniotrabalza@gmail.com">
-					<i class="fa fa-envelope-o fa-lg blue" aria-hidden="true" style="color: #09B3CA;">
-						<span style="color: #fff;">&nbsp;antoniotrabalza@gmail.com</span>
-					</i>
-				</a>
-				<a href="tel:+447577833827">
-					<i class="fa fa-phone fa-lg green" aria-hidden="true" style="color: #B5CF5D;">
-						<span style="color: #fff;">&nbsp;07577833827</span>
-					</i>
-				</a>
-			</div>
-		</section>
-	<section id="main" style="display: flex; margin-top: 2vh;">
-		<section>
-			<section class="box" style="border: 2px dashed #fff; position: relative; margin: 0 .5vw 2.5vh .5vw;">
-				<div id="about" class="secTitles lx" style="color:#fff;">
-					<p>&gt;About me</p><span>&gt;About&lt;</span>
-				</div>
-				<ul style="list-style-type: none; padding: 1vw;">
-					<li>I am a Full Stack developer with a Scientific Research background. I am passionate about everything Science &amp; Technology and I enjoy functional, lean and clean designs.</li>
-				</ul>
-			</section>
-			<section class="box blue" style="border: 2px dashed #09B3CA; position: relative; margin: 0 .5vw 2.5vh .5vw;">
-				<div id="qual" class="secTitles lx blue" style="color:#09B3CA;">
-					<p>&gt;Qualification/training</p><span>&gt;Qualification&lt;</span>
-				</div>
-				<ul style="list-style-type: none; padding: 1vw;">
-					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2017</span>&nbsp;Full stack developer course - Founders &amp; Coders</li>
-					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2015</span>&nbsp;C for Science course - Imperial College London</li>
-					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2009</span>&nbsp;PhD Neuroscience - "Sapienza" University of Rome</li>
-					<li><span class="blue" style="color:#09B3CA; font-weight: 600;">2005</span>&nbsp;BA and MSc Psychology - "Sapienza" University of Rome</li>
-				</ul>
-			</section>
-		</section>
-		<section class="box purple" style="border: 2px dashed #BB1881; position: relative; margin: 0 .5vw 2.5vh .5vw">
-			<div id="code" class="secTitles rx purple" style="color:#BB1881;">
-				<p>Coding skills&lt;</p><span>&gt;Coding skills&lt;</span>
-			</div>
-			<ul>
-				<li>Javascript ES6, HTML5 and CSS3.</li>
-				<li>BEM, Bootstrap 3.* and JQuery.</li>
-				<li>Node.js – Express.js, Hapi.js, Handelbars and deploying Heroku.</li>
-				<li>PostgreSQL, MySQL and MongoDB. </li>
-				<li>QUnit, Tape, Travis CI, Jest, Codecov.</li>
-				<li>Shell (bash) scripting.</li>
-				<li>C and Arduino prototyping.</li>
-				<li>Python and Raspberry Pi prototyping.</li>
-				<li>R statistical analysis.</li>
-				<li>OpenSCAD (3D object design and printing).</li>
-				<li>FIJI/ImageJ2 Macro Language for microscopy image analysis &amp; pattern recognition.</li>
-			</ul>
-		</section>
-		<section class="box orange" style="border: 2px dashed #F19F19;  position: relative; margin: 0 .5vw 2.5vh .5vw;">
-			<div id="it" class="secTitles lx orange" style="color:#F19F19;">
-				<p>&gt;IT/SysAdmin skills</p><span>&gt;IT/SysAdmin skills&lt;</span>
-			</div>
-			<ul>
-				<li>Gnu/Linux Operating System.</li>
-				<li>Ubuntu, Debian, Gentoo, Fedora, CentOS and Devuan – Desktop and Server.</li>
-				<li>LAMP, LEMP, LAPP, LEPP and MEAN software stacks.</li>
-				<li>Network analysis and reporting tools (nmap, netstat, netcat, tcpdump, SAR, wireshark).</li>
-				<li>VirtualBox and Qemu/KVM virtual machines.</li>
-				<li>Docker and LXC.</li>
-				<li>AWS, Puppet.</li>
-				<li>Vim and Atom text editors.</li>
-				<li>Good knowledge of computer hardware and of IoT Electronics.</li>
-			</ul>
-		</section>
-		<section class="box green" style="border: 2px dashed #B5CF5D; position: relative; margin: 0 .5vw 2.5vh .5vw;">
-				<div id="manag" class="secTitles rx green" style="color:#B5CF5D;">
-					<p>Interpersonal/Planning/Problem solving skills&lt;</p><span>&gt;Management skills&lt;</span>
-				</div>
-			<ul>
-				<li>Presentation of Code, Tech and related subjects and Product pitch, both written and oral.</li>
-				<li>Presentation of Research findings in international journals, at conferences and regular Laboratory and Department meetings, both written and oral.</li>
-				<li>Managing, planning and reporting of my own work and that of supervised students.</li>
-				<li>Management of internal and external collaborations.</li>
-				<li>Design and planning of novel experiments to overcome problems related to PhD and Scientific Research activities. </li>
-				<li>Management of Research funds.</li>
-			</ul>
-		</section>
-	</section>
-	<div class="border" style="margin-top: 2vh; width:100%; height:1px; background: linear-gradient(to right, #525252, #ffffff);"></div>
-	<footer id="footer" style="position: relative; width:100%; height:12.5vh; overflow: hidden;">
-		<a href="./CV_Antonio_Trabalza_Silicon_2017.pdf" aria-hidden="true" style="color: #fff; position: absolute; left: 1vw; top: 3vh;">
-			<i class="fa fa-file-pdf-o fa-lg" style="color: #fff;">
-				<span>&nbsp;printer friendly</span>
-			</i>
-		</a>
-	</footer>
+    <header id="header">
+        <div id="myName">
+            <h1>Antonio Trabalza</h1>
+        </div>
+    </header>
+    <div id="h_border"></div>
+        <section id="contacts">
+            <div class="innerContacts">
+                <a href="https://github.com/antoniotrkdz">
+                    <i class="fa fa-github-alt fa-lg orange" aria-hidden="true" style="color: #F19F19">
+                        <span style="color: #fff">&nbsp;github.com/antoniotrkdz</span>
+                    </i>
+                </a>
+                <a href="https://www.linkedin.com/in/a-trabalza-phd/">
+                    <i class="fa fa-linkedin fa-lg purple" aria-hidden="true" style="color: #BB1881">
+                        <span style="color: #fff">&nbsp;linkedin.com/in/a-trabalza-phd</span>
+                    </i>
+                </a>
+            </div>
+            <div  class="innerContacts">
+                <a href="mailto:antoniotrabalza@gmail.com">
+                    <i class="fa fa-envelope-o fa-lg blue" aria-hidden="true" style="color: #09B3CA;">
+                        <span style="color: #fff;">&nbsp;antoniotrabalza@gmail.com</span>
+                    </i>
+                </a>
+                <a href="tel:+447577833827">
+                    <i class="fa fa-phone fa-lg green" aria-hidden="true" style="color: #B5CF5D;">
+                        <span style="color: #fff;">&nbsp;07577833827</span>
+                    </i>
+                </a>
+            </div>
+        </section>
+    <section id="main">
+        <section>
+            <section class="box">
+                <div id="about" class="secTitles lx" style="color:#fff;">
+                    <p>&gt;About me</p><span>&gt;About&lt;</span>
+                </div>
+                <ul style="list-style-type: none; padding: 1vw;">
+                    <li>I am a Full Stack developer with a Scientific Research background. I am passionate about everything Science &amp; Technology and I enjoy functional, lean and clean designs.</li>
+                </ul>
+            </section>
+            <section class="box blue" style="border: 2px dashed #09B3CA; position: relative; margin: 0 .5vw 2.5vh .5vw;">
+                <div id="qual" class="secTitles lx blue" style="color:#09B3CA;">
+                    <p>&gt;Qualification/training</p><span>&gt;Qualification&lt;</span>
+                </div>
+                <ul style="list-style-type: none; padding: 1vw;">
+                    <li><span class="blue" style="color:#09B3CA; font-weight: 600;">2017</span>&nbsp;Full stack developer course - Founders &amp; Coders</li>
+                    <li><span class="blue" style="color:#09B3CA; font-weight: 600;">2015</span>&nbsp;C for Science course - Imperial College London</li>
+                    <li><span class="blue" style="color:#09B3CA; font-weight: 600;">2009</span>&nbsp;PhD Neuroscience - "Sapienza" University of Rome</li>
+                    <li><span class="blue" style="color:#09B3CA; font-weight: 600;">2005</span>&nbsp;BA and MSc Psychology - "Sapienza" University of Rome</li>
+                </ul>
+            </section>
+        </section>
+        <section class="box purple" style="border: 2px dashed #BB1881; position: relative; margin: 0 .5vw 2.5vh .5vw">
+            <div id="code" class="secTitles rx purple" style="color:#BB1881;">
+                <p>Coding skills&lt;</p><span>&gt;Coding skills&lt;</span>
+            </div>
+            <ul>
+                <li>Javascript ES6, HTML5 and CSS3.</li>
+                <li>BEM, Bootstrap 3.* and JQuery.</li>
+                <li>Node.js – Express.js, Hapi.js, Handelbars and deploying Heroku.</li>
+                <li>PostgreSQL, MySQL and MongoDB. </li>
+                <li>QUnit, Tape, Travis CI, Jest, Codecov.</li>
+                <li>Shell (bash) scripting.</li>
+                <li>C and Arduino prototyping.</li>
+                <li>Python and Raspberry Pi prototyping.</li>
+                <li>R statistical analysis.</li>
+                <li>OpenSCAD (3D object design and printing).</li>
+                <li>FIJI/ImageJ2 Macro Language for microscopy image analysis &amp; pattern recognition.</li>
+            </ul>
+        </section>
+        <section class="box orange" style="border: 2px dashed #F19F19;  position: relative; margin: 0 .5vw 2.5vh .5vw;">
+            <div id="it" class="secTitles lx orange" style="color:#F19F19;">
+                <p>&gt;IT/SysAdmin skills</p><span>&gt;IT/SysAdmin skills&lt;</span>
+            </div>
+            <ul>
+                <li>Gnu/Linux Operating System.</li>
+                <li>Ubuntu, Debian, Gentoo, Fedora, CentOS and Devuan – Desktop and Server.</li>
+                <li>LAMP, LEMP, LAPP, LEPP and MEAN software stacks.</li>
+                <li>Network analysis and reporting tools (nmap, netstat, netcat, tcpdump, SAR, wireshark).</li>
+                <li>VirtualBox and Qemu/KVM virtual machines.</li>
+                <li>Docker and LXC.</li>
+                <li>AWS, Puppet.</li>
+                <li>Vim and Atom text editors.</li>
+                <li>Good knowledge of computer hardware and of IoT Electronics.</li>
+            </ul>
+        </section>
+        <section class="box green" style="border: 2px dashed #B5CF5D; position: relative; margin: 0 .5vw 2.5vh .5vw;">
+                <div id="manag" class="secTitles rx green" style="color:#B5CF5D;">
+                    <p>Interpersonal/Planning/Problem solving skills&lt;</p><span>&gt;Management skills&lt;</span>
+                </div>
+            <ul>
+                <li>Presentation of Code, Tech and related subjects and Product pitch, both written and oral.</li>
+                <li>Presentation of Research findings in international journals, at conferences and regular Laboratory and Department meetings, both written and oral.</li>
+                <li>Managing, planning and reporting of my own work and that of supervised students.</li>
+                <li>Management of internal and external collaborations.</li>
+                <li>Design and planning of novel experiments to overcome problems related to PhD and Scientific Research activities. </li>
+                <li>Management of Research funds.</li>
+            </ul>
+        </section>
+    </section>
+    <div id="f_border"></div>
+    <footer id="footer">
+        <a id="pdf" href="./CV_Antonio_Trabalza_Silicon_2017.pdf" aria-hidden="true">
+            <i class="fa fa-file-pdf-o fa-lg" style="color: #fff;">
+                <span>&nbsp;printer friendly</span>
+            </i>
+        </a>
+    </footer>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
 <script>
-	//Using trianglify library
 
-	function draw() {
-		var header = document.getElementById("header");
-		var footer = document.getElementById("footer");
+//--Drawing header and footer patterns using Triaglify library--------------------
 
-		var hpattern = Trianglify({ //Header pattern object
-			width: header.offsetWidth,
-			height: header.offsetHeight,
-			variance: 1,
-			x_colors: ['#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#f0f0f0','#d9d9d9','#bdbdbd','#969696','#737373','#525252','#252525','#000000','#000000','#000000','#000000'],
-			y_colors: ['#252525','#252525'],
-			stroke_width: 1,
-			cell_size: 30,
-		});
+    function draw() {
+        var header = document.getElementById("header");
+        var footer = document.getElementById("footer");
+        var colorArray = ['#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#f0f0f0','#d9d9d9','#bdbdbd','#969696','#737373','#525252','#252525','#000000','#000000','#000000','#000000'];
 
-		var fpattern = Trianglify({ //Footer pattern object
-			width: footer.offsetWidth,
-			height: footer.offsetHeight,
-			variance: 1,
-			x_colors: ['#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#f0f0f0','#d9d9d9','#bdbdbd','#969696','#737373','#525252','#252525','#000000','#000000','#000000','#000000'].reverse(),
-			y_colors: ['#252525','#252525'],
-			stroke_width: 1,
-			cell_size: 30,
-		});
+        var hpattern = Trianglify({ //Header pattern object
+            width: header.offsetWidth,
+            height: header.offsetHeight,
+            variance: 1,
+            x_colors: colorArray,
+            y_colors: ['#252525','#252525'],
+            stroke_width: 1,
+            cell_size: 30,
+        });
 
-		//These are to prevent the function to draw more than 1 pattern
-		var hsvg = header.getElementsByTagName("svg");
-		if (hsvg.length > 0) header.removeChild(hsvg[0]);
-		header.appendChild(hpattern.svg());
+        var fpattern = Trianglify({ //Footer pattern object
+            width: footer.offsetWidth,
+            height: footer.offsetHeight,
+            variance: 1,
+            x_colors: colorArray.reverse(),
+            y_colors: ['#252525','#252525'],
+            stroke_width: 1,
+            cell_size: 30,
+        });
 
-		var fsvg = footer.getElementsByTagName("svg");
-		if (fsvg.length > 0) footer.removeChild(fsvg[0]);
-		footer.appendChild(fpattern.svg());
-	}
+        //These are to prevent the function to draw more than 1 pattern
+        var hsvg = header.getElementsByTagName("svg");
+        if (hsvg.length > 0) header.removeChild(hsvg[0]);
+        header.appendChild(hpattern.svg());
 
-	function randomPath() { //Choses a svg element at random.
-		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
-		var n = Math.floor(Math.random() * svgNodes.length);
-		return svgNodes[n];
-	}
+        var fsvg = footer.getElementsByTagName("svg");
+        if (fsvg.length > 0) footer.removeChild(fsvg[0]);
+        footer.appendChild(fpattern.svg());
+    }
 
-	function randomPathsArray(){
-		var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
-		var r = Math.floor(Math.random() * 10);
-		var arr = [];
+//--Random path(s) fill-----------------------------------------------------------
 
-		for (i=0; i<r; i++) {
-			var n = Math.floor(Math.random() * svgNodes.length);
-			arr.push(n);
-		}
+    function randomPath() { //Choses a svg element at random.
+        var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
+        var n = Math.floor(Math.random() * svgNodes.length);
+        return svgNodes[n];
+    }
 
- 		console.log(arr);
-		for (var a=0; a<arr.length; a++) {
-	 		blink(svgNodes[arr[a]]);
-			// 	console.log(svgNodes[arr[a]]);
-	 	}
-	}
+    function randomPathsArray(){
+        var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
+        var r = Math.floor(Math.random() * 10);
+        var arr = [];
 
-	function randomTime(min, max) { //Choses a time (ms) at random between two values (inclusive).
-  	min = Math.ceil(min);
-  	max = Math.floor(max);
-  	return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
+        for (i=0; i<r; i++) {
+            var n = Math.floor(Math.random() * svgNodes.length);
+            arr.push(n);
+        }
 
-	function blink(path) { //(Re)fills the path, waits a bit and removes the fill (back to initial css rule).
-		console.log(typeof path);
-		path.style.fill = path.getAttribute("fill");
-		setTimeout(function () { path.style.fill="none" }, randomTime(250, 600));
-	}
+        console.log(arr);
+        for (var a=0; a<arr.length; a++) {
+            blink(svgNodes[arr[a]]);
+            //console.log(svgNodes[arr[a]]);
+        }
+    }
 
-	function shuffle(array) { //function to shuffle array elements
-  	var currentIndex = array.length, temporaryValue, randomIndex;
-  		// While there remain elements to shuffle...
-  	while (0 !== currentIndex) {
-    	// Pick a remaining element...
-    	randomIndex = Math.floor(Math.random() * currentIndex);
-    	currentIndex -= 1;
-   		// And swap it with the current element.
-   	 	temporaryValue = array[currentIndex];
-    	array[currentIndex] = array[randomIndex];
-    	array[randomIndex] = temporaryValue;
-  	}
-  		return array;
-	}
+    function randomTime(min, max) { //Choses a time (ms) at random between two values (inclusive).
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-	function randomColors() {
-		var colors = ["#09B3CA","#F19F19","#B5CF5D","#BB1881"];
-		colors = shuffle(colors); //shuffles the colors
+    function blink(path) { //(Re)fills the path, waits a bit and removes the fill (back to initial css rule).
+        console.log(typeof path);
+        path.style.fill = path.getAttribute("fill");
+        setTimeout(function () { path.style.fill="none" }, randomTime(250, 600));
+    }
 
-		var elements = {
-			blue : document.querySelectorAll(".blue"),
-			orange : document.querySelectorAll(".orange"),
-			purple : document.querySelectorAll(".purple"),
-			green : document.querySelectorAll(".green")
-		}
+//--Shuffle the colors of the boxes-----------------------------------------------
 
-		var j=0;
+    function shuffle(array) { //function to shuffle array elements
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    }
 
-		for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
-			for (e=0; e<elements[i].length; e++) {
-				if (elements[i][e].className.indexOf("box")===-1) {
-					elements[i][e].style.color = colors[j];
-				}
-				else elements[i][e].style.borderColor = colors[j];
-			}
-			j++;
-		}
-		/*Solves the problem with forEach loop (looks cleaner), but has browser compatibility issues.
-		for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
-			elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
-			else e.style.borderColor = colors[j]; });
-			j++;
-		}*/
-	}
+    function randomColors() {
+        var colors = ["#09B3CA","#F19F19","#B5CF5D","#BB1881"];
+        colors = shuffle(colors); //shuffles the colors
 
-	draw(); //initialize the function on load - draws the triangles header and footer.
-	randomColors();
-	//window.onresize = function() { draw() } //Redraws the svg(s) on resize for responsive design (two ways of doing the same thing, just pick one):
-	window.addEventListener("resize", draw);
-	setInterval(function () { blink(randomPath()) }, randomTime(200, 600)); //initialize the function on load.
-	var hover;
-	document.getElementById("myName").onmouseenter = hover = function () { clearInterval(blink(randomPath())); setInterval(function () { randomPathsArray() }, randomTime(200, 600)); console.log("+++++") };
-	document.getElementById("myName").onmouseleave = hover = function () { clearInterval(randomPathsArray()); setInterval(function () { blink(randomPath()) }, randomTime(200, 600)); console.log("-----") };
+        var elements = {
+            blue : document.querySelectorAll(".blue"),
+            orange : document.querySelectorAll(".orange"),
+            purple : document.querySelectorAll(".purple"),
+            green : document.querySelectorAll(".green")
+        }
+
+        var j=0;
+
+        for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
+            for (e=0; e<elements[i].length; e++) {
+                if (elements[i][e].className.indexOf("box")===-1) {
+                    elements[i][e].style.color = colors[j];
+                }
+                else elements[i][e].style.borderColor = colors[j];
+            }
+            j++;
+        }
+        /*Solves the problem with forEach loop (looks cleaner), but has browser compatibility issues.
+        for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
+            elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
+            else e.style.borderColor = colors[j]; });
+            j++;
+        }*/
+    }
+
+//--Execute/initialize functions--------------------------------------------------
+
+    draw(); // draws the triangles header and footer.
+    randomColors();
+    //window.onresize = function() { draw() } //Redraws the svg(s) on resize for responsive design (two ways of doing the same thing, just pick one):
+    window.addEventListener("resize", draw);
+    setInterval(function () { blink(randomPath()) }, randomTime(200, 600));
+    var hover;
+    document.getElementById("myName").onmouseenter = hover = function () { clearInterval(blink(randomPath())); setInterval(function () { randomPathsArray() }, randomTime(200, 600)); console.log("+++++") };
+    document.getElementById("myName").onmouseleave = hover = function () { clearInterval(randomPathsArray()); setInterval(function () { blink(randomPath()) }, randomTime(200, 600)); console.log("-----") };
 </script>
 </html>
