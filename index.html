@@ -222,13 +222,20 @@
         var svgNodes = header.getElementsByTagName("svg")[0].childNodes;
         var r = Math.floor(Math.random() * 10);
         var arr = [];
+        var svgArr = [];
 
         for (i=0; i<r; i++) {
             var n = Math.floor(Math.random() * svgNodes.length);
             arr.push(n);
         }
-
-        console.log(arr);
+        /*console.log(arr);
+        for (var a=0; a<arr.length; a++) {
+            var svg = svgNodes[arr[a]];
+            console.log(svg);
+            svgArr.push(svg);
+        }*/
+        //console.log(svgArr);
+        //return svgArr;//, svgNodes[arr];
         for (var a=0; a<arr.length; a++) {
             blink(svgNodes[arr[a]]);
             //console.log(svgNodes[arr[a]]);
@@ -241,11 +248,19 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    function blink(path) { //(Re)fills the path, waits a bit and removes the fill (back to initial css rule).
-        console.log(typeof path);
-        path.style.fill = path.getAttribute("fill");
-        setTimeout(function () { path.style.fill="none" }, randomTime(250, 600));
-    }
+    function blink(path, arr) { //(Re)fills the path, waits a bit and removes the fill (back to initial css rule).
+        console.log(path);
+        //if (!Array.isArray(path)) {
+            path.style.fill = path.getAttribute("fill");
+            setTimeout(function () { path.style.fill="none" }, randomTime(250, 600));
+        //}
+        /*else {
+            for (var a=0; a<path.length; a++) {
+                path[a].style.fill = path[a].getAttribute("fill");
+                setTimeout(function () { path[a].style.fill="none" }, randomTime(250, 600));
+            }
+        }
+    */}
 
 //--Shuffle the colors of the boxes-----------------------------------------------
 
@@ -300,9 +315,21 @@
     randomColors();
     //window.onresize = function() { draw() } //Redraws the svg(s) on resize for responsive design (two ways of doing the same thing, just pick one):
     window.addEventListener("resize", draw);
-    setInterval(function () { blink(randomPath()) }, randomTime(200, 600));
-    var hover;
-    document.getElementById("myName").onmouseenter = hover = function () { clearInterval(blink(randomPath())); setInterval(function () { randomPathsArray() }, randomTime(200, 600)); console.log("+++++") };
-    document.getElementById("myName").onmouseleave = hover = function () { clearInterval(randomPathsArray()); setInterval(function () { blink(randomPath()) }, randomTime(200, 600)); console.log("-----") };
+    
+    var noHover = setInterval(function () { blink(randomPath()) }, randomTime(200, 600));
+    var hover;  
+    
+    document.getElementById("myName").onmouseenter = function () {
+        clearInterval(noHover); 
+        hover = setInterval(function () { randomPathsArray() }, randomTime(200, 600));
+        console.log("+++++")
+    };
+    
+    document.getElementById("myName").onmouseleave = function () {
+        clearInterval(hover);
+        noHover = setInterval(function () { blink(randomPath()) }, randomTime(200, 600));
+        console.log("-----")
+    };
+
 </script>
 </html>
