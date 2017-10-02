@@ -102,10 +102,24 @@ i:hover {
   padding: 1px 5px 1px 5px;
 }
 
-#pf_items_container {
-  margin-top: 10vh;
+.pf_items_container {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pf_text {
+  font-weight: 600;
+  text-align: center;
+}
+
+.pf_text p {
+  padding: .7vw;
+}
+
+.pf_text span {
+  color: #fff;
+  font-weight: normal;
 }
 
 .pf_items {
@@ -115,8 +129,6 @@ i:hover {
 }
 
 .pf_items_img {
-  width: 20vw;
-  height: 20vw;
   border: 1px solid #161616;
   border-radius: 50%;
   background-repeat: no-repeat;
@@ -162,6 +174,17 @@ i:hover {
 
   .secTitles p {
     display: inline-block;
+  }
+
+  #pf_container {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .pf_items_img {
+    width: 20vw;
+    height: 20vw;
   }
 }
 
@@ -225,5 +248,25 @@ i:hover {
 
   .secTitles p {
     display:none;
+  }
+
+  #pf_container {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pf_items_container {
+    margin-bottom: 5vh;
+  }
+
+  .pf_items_img {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .pf_text {
+    margin-top: 2vh;
   }
 }

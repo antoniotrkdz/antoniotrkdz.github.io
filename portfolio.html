@@ -12,41 +12,82 @@
   <body style="background-color: #161616;">
     <header id="header_pf">
       <div id="myName_pf">
-        <h1>Antonio Trabalza</h1>
+        <a href="./index.html">
+          <h1>Antonio Trabalza</h1>
+        </a>
       </div>
     </header>
     <div id="h_border_pf"></div>
-
-    <section id="pf_items_container">
+    <section id="pf_container">
       <!--<svg viewBox="0 0 500 500">-->
-        <!--<path id="curve"  d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />-->
-        <!--<text width="500">-->
-        <!--<textPath xlink:href="#curve">-->
-        <!--Dangerous Curves Ahead-->
-        <!--</textPath>-->
-        <!--</text>-->
+      <!--<path id="curve"  d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />-->
+      <!--<text width="500">-->
+      <!--<textPath xlink:href="#curve">-->
+      <!--Dangerous Curves Ahead-->
+      <!--</textPath>-->
+      <!--</text>-->
       <!--</svg>-->
-      <div class="pf_items green">
-        <a href="https://www1.virginianizzi.com/">
-          <div class="pf_items_img"
-               style="background-image: url('./images/VirginiaN.png');">
+        <div class="pf_items_container">
+          <div class="pf_items green">
+            <a href="https://www1.virginianizzi.com/">
+              <div class="pf_items_img"
+                   style="background-image: url('./images/VirginiaN.png');">
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
-      <div class="pf_items blue">
-        <a href="https://github.com/antoniotrkdz/week2-FA">
-          <div class="pf_items_img"
-               style="background-image: url('./images/Stopwatch.png');">
+          <div class="pf_text green">
+            <p>2016<br>
+              Client Website<br>
+              <span>JQuery + Bootstrap 3.*</span>
+            </p>
           </div>
-        </a>
-      </div>
-      <div class="pf_items orange">
-        <a href="https://beevr.herokuapp.com/">
-          <div class="pf_items_img"
-               style="background-image: url('./images/BeevrApp.png');">
+        </div>
+        <div class="pf_items_container">
+          <div class="pf_items purple">
+            <a href="https://antoniotrkdz.github.io/tribute_page/">
+              <div class="pf_items_img"
+                   style="background-image: url('./images/KingT.png');">
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
+          <div class="pf_text purple">
+            <p>2016<br>
+              F&amp;C exercise<br>
+              <span>Vanilla Javascript</span>
+            </p>
+          </div>
+        </div>
+        <div class="pf_items_container">
+          <div class="pf_items blue">
+            <a href="https://github.com/antoniotrkdz/week2-FA">
+              <div class="pf_items_img"
+                   style="background-image: url('./images/Stopwatch.png');">
+              </div>
+            </a>
+          </div>
+          <div class="pf_text blue">
+            <p>2017<br>
+              F&amp;C exercise<br>
+              <span>Vanilla Javascript</span>
+            </p>
+          </div>
+        </div>
+        <div class="pf_items_container">
+          <div class="pf_items orange">
+            <a href="https://beevr.herokuapp.com/">
+              <div class="pf_items_img"
+                   style="background-image: url('./images/BeevrApp.png');">
+              </div>
+            </a>
+          </div>
+          <div class="pf_text orange">
+            <p>2017<br>
+              client website<br>
+              <span>react + redux + bootstrap 4.*<br>
+              hapi.js + postgresql</span>
+            </p>
+          </div>
+        </div>
     </section>
   </body>
 
@@ -97,8 +138,8 @@ function draw() {
 function shuffle(array) {
   //function to shuffle array elements
   var currentIndex = array.length,
-    temporaryValue,
-    randomIndex;
+  temporaryValue,
+  randomIndex;
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
     // Pick a remaining element...
@@ -128,18 +169,18 @@ function randomColors() {
   for (var i in elements) {
     //cicles through the elements to be colored and applies a color from the shuffled array.
     for (e = 0; e < elements[i].length; e++) {
-      if (elements[i][e].className.indexOf('box') !== -1) {
+      if (elements[i][e].className.indexOf('text') !== -1) {
         elements[i][e].style.color = colors[j];
       } else elements[i][e].style.borderColor = colors[j];
     }
     j++;
   }
   /*Solves the problem with forEach loop (looks cleaner), but has browser compatibility issues.
-        for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
-            elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
-            else e.style.borderColor = colors[j]; });
-            j++;
-        }*/
+    for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
+    elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
+    else e.style.borderColor = colors[j]; });
+    j++;
+    }*/
 }
 
 draw();
