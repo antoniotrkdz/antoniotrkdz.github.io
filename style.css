@@ -108,6 +108,22 @@ i:hover {
   align-items: center;
 }
 
+.pf_items_container > .pf_items {
+  -webkit-animation: spin-right 30s linear infinite;
+  animation: spin-right 30s linear infinite;
+}
+
+/* ---------- Animation ---------- */
+@-webkit-keyframes spin-right {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .pf_text {
   font-weight: 600;
   text-align: center;
@@ -134,7 +150,21 @@ i:hover {
   background-repeat: no-repeat;
   background-origin: border-box;
   background-size: cover;
+  -webkit-animation: spin-left 30s linear infinite;
+  animation: spin-left 30s linear infinite;
 }
+
+/* ---------- Animation ---------- */
+@-webkit-keyframes spin-left {
+  100% {
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
 
 @media (min-width: 761px) { /*desktop*/
   #contacts {
