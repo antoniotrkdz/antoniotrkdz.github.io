@@ -109,7 +109,7 @@ i:hover {
   align-items: center;
 }
 
-.pf_items_container > .pf_items {
+.pf_items_container > .pf_items:hover {
   -webkit-animation: spin-right 30s linear infinite;
   animation: spin-right 30s linear infinite;
 }
@@ -151,6 +151,9 @@ i:hover {
   background-repeat: no-repeat;
   background-origin: border-box;
   background-size: cover;
+}
+
+.pf_items_img:hover {
   -webkit-animation: spin-left 30s linear infinite;
   animation: spin-left 30s linear infinite;
 }

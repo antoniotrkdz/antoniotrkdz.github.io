@@ -93,98 +93,112 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
   <script>
-//--Drawing header and footer patterns using Trianglify library--------------------
 
-function draw() {
-  var headerPf = document.getElementById('header_pf');
-  //var footer = document.getElementById('footer');
-  var colorArray = [
-    '#ffffff',
-    '#ffffff',
-    '#ffffff',
-    '#ffffff',
-    '#ffffff',
-    '#f0f0f0',
-    '#d9d9d9',
-    '#bdbdbd',
-    '#969696',
-    '#737373',
-    '#525252',
-    '#252525',
-    '#000000',
-    '#000000',
-    '#000000',
-    '#000000',
-  ];
+    //--Drawing header and footer patterns using Trianglify library--------------------
 
-  var hpattern = Trianglify({
-    //Header pattern object
-    width: headerPf.offsetWidth,
-    height: headerPf.offsetHeight,
-    variance: 1,
-    x_colors: colorArray,
-    y_colors: ['#252525', '#252525'],
-    stroke_width: 1,
-    cell_size: 30,
-  });
-  //These are to prevent the function to draw more than 1 pattern
-  var hsvg = headerPf.getElementsByTagName('svg');
-  if (hsvg.length > 0) headerPf.removeChild(hsvg[0]);
-  headerPf.appendChild(hpattern.svg());
-}
+    var elements = {
+        blue: document.querySelectorAll('.blue'),
+        orange: document.querySelectorAll('.orange'),
+        purple: document.querySelectorAll('.purple'),
+        green: document.querySelectorAll('.green'),
+    };
 
-//--Shuffle the colors of the circles-----------------------------------------------
+    function draw() {
+      var headerPf = document.getElementById('header_pf');
+      //var footer = document.getElementById('footer');
+      var colorArray = [
+        '#ffffff',
+        '#ffffff',
+        '#ffffff',
+        '#ffffff',
+        '#ffffff',
+        '#f0f0f0',
+        '#d9d9d9',
+        '#bdbdbd',
+        '#969696',
+        '#737373',
+        '#525252',
+        '#252525',
+        '#000000',
+        '#000000',
+        '#000000',
+        '#000000',
+      ];
 
-function shuffle(array) {
-  //function to shuffle array elements
-  var currentIndex = array.length,
-  temporaryValue,
-  randomIndex;
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-}
-
-function randomColors() {
-  var colors = ['#09B3CA', '#F19F19', '#B5CF5D', '#BB1881'];
-  colors = shuffle(colors); //shuffles the colors
-
-  var elements = {
-    blue: document.querySelectorAll('.blue'),
-    orange: document.querySelectorAll('.orange'),
-    purple: document.querySelectorAll('.purple'),
-    green: document.querySelectorAll('.green'),
-  };
-
-  var j = 0;
-
-  for (var i in elements) {
-    //cicles through the elements to be colored and applies a color from the shuffled array.
-    for (e = 0; e < elements[i].length; e++) {
-      if (elements[i][e].className.indexOf('text') !== -1) {
-        elements[i][e].style.color = colors[j];
-      } else elements[i][e].style.borderColor = colors[j];
+      var hpattern = Trianglify({
+        //Header pattern object
+        width: headerPf.offsetWidth,
+        height: headerPf.offsetHeight,
+        variance: 1,
+        x_colors: colorArray,
+        y_colors: ['#252525', '#252525'],
+        stroke_width: 1,
+        cell_size: 30,
+      });
+      //These are to prevent the function to draw more than 1 pattern
+      var hsvg = headerPf.getElementsByTagName('svg');
+      if (hsvg.length > 0) headerPf.removeChild(hsvg[0]);
+      headerPf.appendChild(hpattern.svg());
     }
-    j++;
-  }
-  /*Solves the problem with forEach loop (looks cleaner), but has browser compatibility issues.
-    for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
-    elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
-    else e.style.borderColor = colors[j]; });
-    j++;
-    }*/
-}
 
-draw();
-window.addEventListener('resize', draw);
-randomColors();
+    //--Shuffle the colors of the circles-----------------------------------------------
+
+    function shuffle(array) {
+      //function to shuffle array elements
+      var currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      return array;
+    }
+
+    function randomColors() {
+      var colors = ['#09B3CA', '#F19F19', '#B5CF5D', '#BB1881'];
+      colors = shuffle(colors); //shuffles the colors
+
+      var j = 0;
+
+      for (var i in elements) {
+        //cicles through the elements to be colored and applies a color from the shuffled array.
+        for (var e = 0; e < elements[i].length; e++) {
+          if (elements[i][e].className.indexOf('text') !== -1) {
+            elements[i][e].style.color = colors[j];
+          } else elements[i][e].style.borderColor = colors[j];
+        }
+        j++;
+      }
+      /*Solves the problem with forEach loop (looks cleaner), but has browser compatibility issues.
+        for (var i in elements) { //cicles through the elements to be colored and applies a color from the shuffled array.
+        elements[i].forEach(function (e) { if (e.className.indexOf("box")===-1) e.style.color = colors[j];
+        else e.style.borderColor = colors[j]; });
+        j++;
+        }*/
+    }
+
+    function randomSpin() {
+      //var spin = Math.floor(Math.random() * 2) == 0;
+      var speed = Math.floor(Math.random() * 20);
+      console.log("speed",speed);
+    
+      for (var i in elements) {
+        for (var e = 0; e < elements[i].length; e++) {
+            elements[i][e].style.animationDuration = speed + 's';
+        }
+      }
+    }
+
+    draw();
+    window.addEventListener('resize', draw);
+    randomColors();
+    randomSpin();
   </script>
 </html>
