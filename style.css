@@ -24,8 +24,9 @@ i:hover {
   transform: scale(1.1);
 }
 
-#portfolio:hover {
-  transform: scale(1.1);
+#portfolio {
+  margin-top: 0.5em;
+  margin-bottom: 1.2em;
 }
 
 #header, #header_pf {
@@ -52,7 +53,7 @@ i:hover {
   right: 1vw;
 }
 
-#contacts {
+.links {
   display: flex;
 }
 
@@ -61,7 +62,7 @@ i:hover {
   margin-top: 2vh;
 }
 
-.innerContacts {
+.contacts {
   display: flex;
 }
 
@@ -167,12 +168,12 @@ i:hover {
 
 
 @media (min-width: 761px) { /*desktop*/
-  #contacts {
+  .links {
     flex-flow: row wrap;
     justify-content: center;
   }
 
-  .innerContacts {
+  .contacts {
     flex-flow: row;
     justify-content: space-between;
   }
@@ -219,12 +220,12 @@ i:hover {
 }
 
 @media (max-width: 760px) { /*mobile*/
-  #contacts {
+  .links {
     flex-flow: column;
     align-items: center;
   }
 
-  .innerContacts {
+  .contacts {
     flex-flow: column;
     align-items: center;
   }
