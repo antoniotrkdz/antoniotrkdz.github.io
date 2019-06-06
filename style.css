@@ -179,8 +179,12 @@ i:hover {
 
   #pf_container {
     margin-top: 10vh;
+  }
+
+  .pf_sub_container {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 5vh;
   }
 
   .pf_items_img {
