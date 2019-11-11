@@ -172,5 +172,20 @@ document.getElementById('myName').onmouseleave = function() {
   }, randomTime(200, 600));
 };
 
+document.getElementsByTagName('a').onmouseenter = function() {
+  //On entering the name <div> switch to fill arrays of paths.
+  clearInterval(noHover);
+  hover = setInterval(function() {
+    randomPathsArray();
+  }, randomTime(200, 600));
+};
+
+document.getElementsByTagName('a').onmouseleave = function() {
+  //On exiting the name <div> return to the previous fill pattern.
+  clearInterval(hover);
+  noHover = setInterval(function() {
+    blink(randomPath());
+  }, randomTime(200, 600));
+};
 module.exports = {shuffle, randomColors};
 
