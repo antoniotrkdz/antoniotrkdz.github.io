@@ -105,6 +105,7 @@ i:hover {
 }
 
 .secTitles {
+  position: absolute;
   background-color: #161616;
   font-weight: 600;
   padding: 1px 5px 1px 5px;
@@ -164,10 +165,6 @@ i:hover {
     width: 46vw;
   }
 
-  .secTitles {
-    position: absolute;
-  }
-
   .lx {
     right: -7px ; top: -13px;
   }
@@ -221,7 +218,9 @@ i:hover {
   }
 
   .secTitles {
-    position: relative;
+    width: fit-content;
+    left: 0;
+    right: 0;
   }
 
   .lx {
@@ -230,32 +229,9 @@ i:hover {
   }
 
   .rx {
+    top: 0;
     margin: -13px auto;
     text-align: center;
-  }
-
-  #about {
-    width: 60px;
-  }
-
-  #qual {
-    width: 105px;
-  }
-
-  #code {
-    width: 105px;
-  }
-
-  #it {
-    width: 150px;
-  }
-
-  #manag {
-    width: 152px;
-  }
-
-  .secTitles span {
-    display:inline-block;
   }
 
   .secTitles p {
