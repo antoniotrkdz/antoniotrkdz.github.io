@@ -44,6 +44,7 @@ i:hover {
 
 #myName h1, #myName_pf h1 {
   background: -webkit-linear-gradient(left, #fff, #525252);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight:200;
@@ -89,6 +90,12 @@ i:hover {
 
 .fa {
   padding: 1.5vh;
+}
+
+.halves {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .box {
