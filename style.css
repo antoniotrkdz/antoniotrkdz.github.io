@@ -95,7 +95,7 @@ i:hover {
 .halves {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: stretch;
 }
 
 .box {
@@ -157,12 +157,25 @@ i:hover {
   }
 
   #main {
-    flex-flow: row wrap;
+    flex-flow: row ;
     justify-content: center;
   }
 
   #main .box {
     width: 46vw;
+    max-width: 760px;
+    padding-right: 2vw;
+  }
+
+  .rh .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  .rh ul {
+    height: 90%
   }
 
   .lx {
@@ -179,6 +192,12 @@ i:hover {
 
   .secTitles p {
     display: inline-block;
+  }
+
+  .rh ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
   #pf_container {
@@ -215,6 +234,7 @@ i:hover {
 
   #main .box {
     width: 95vw;
+    padding-right: 3vw;
   }
 
   .secTitles {
