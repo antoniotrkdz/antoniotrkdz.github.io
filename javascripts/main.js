@@ -156,7 +156,7 @@ var noHover = setInterval(function () {
 }, randomTime(200, 600));
 var hover;
 
-document.getElementById("myName").onmouseenter = function () {
+document.getElementById("header").onmouseenter = function () {
   //On entering the name <div> switch to fill arrays of paths.
   clearInterval(noHover);
   hover = setInterval(function () {
@@ -164,7 +164,7 @@ document.getElementById("myName").onmouseenter = function () {
   }, randomTime(200, 600));
 };
 
-document.getElementById("myName").onmouseleave = function () {
+document.getElementById("header").onmouseleave = function () {
   //On exiting the name <div> return to the previous fill pattern.
   clearInterval(hover);
   noHover = setInterval(function () {
