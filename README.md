@@ -1,3 +1,5 @@
 # antoniotrkdz.github.io
 Loads of serious stuff!
-I am a neuroscientist, but I am also a developer.
+I was neuroscientist, now I am also a developer.
+[link](https://antoniotrkdz.github.io/)
+
