@@ -88,6 +88,13 @@ i:hover {
   top: 3vh;
 }
 
+#prez {
+  color: #fff;
+  position: absolute;
+  left: 30vw;
+  top: 3vh;
+}
+
 .fa {
   padding: 1.5vh;
 }
